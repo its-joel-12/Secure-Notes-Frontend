@@ -10,8 +10,16 @@ export const auditLogsTruncateTexts = (text, length = 25) => {
   return plainText.substring(0, length) + ".....";
 };
 
+// export const truncateText = (text) => {
+//   if (text.length <= 300) return text;
+
+//   return text.substring(0, 300) + ".....";
+// };
+
 export const truncateText = (text) => {
-  if (text.length < 300) return text;
+  if (typeof text !== "string") text = String(text ?? "");
+
+  if (text.length <= 300) return text;
 
   return text.substring(0, 300) + ".....";
 };
